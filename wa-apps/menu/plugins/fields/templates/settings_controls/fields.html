@@ -1,0 +1,98 @@
+{strip}
+	{$fields = $params.value|default:[]}
+	{if !is_array($fields)}
+		{$fields = []}
+	{/if}
+	{$has_fields = !empty($fields)}
+
+	{$field_types = [
+		'input' => 'Текстовое поле (input)',
+		'checkbox' => 'Флажок true/false (checkbox)',
+		'file' => 'Файл'
+	]}
+	{function render_field id=0 title='' key='' type='input' classes='' demo=false}
+		<div class="mf-fields__field j-mf-fields-field {$classes}" data-id="{$id|escape}" {if $demo} style="display: none;"{/if}>
+			<input name="{if $demo}demo_{/if}{$namespace}[{$id}][type]" type="hidden" value="{$type|escape}"/>
+
+			<div class="mf-fields__field-delete-container">
+				<a href="javascript: void();" class="mf-fields__field-delete-link j-mf-fields-field-delete">
+					<i class="icon16 delete"></i>
+				</a>
+			</div>
+			<div class="mf-fields__field-label">
+				<div class="mf-fields__field-code-container">
+					<div class="mf-fields__field-code-block">
+						<span class="mf-fields__field-code j-mf-fields-field-id"{if !!$key} style="display: none;"{/if}>
+							{'{'}$item.field_<span class="j-mf-fields-field-id-value">{$id}</span>{'}'}
+						</span>
+					</div>
+					<div class="mf-fields__field-code-block j-mf-fields-field-key"{if !$key} style="display: none;"{/if}>
+						<span class="mf-fields__field-code mf-fields__field-code--key">
+							{'{'}$item.field_<span class="j-mf-fields-field-key-value">{$key|escape}</span>{'}'}
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="mf-fields__field-settings">
+				<div class="mf-fields__field-setting">
+					<div class="mf-fields__field-setting-name">
+						Название дополнительного поля
+					</div>
+					<div class="mf-fields__field-setting-value">
+						<input name="{if $demo}demo_{/if}{$namespace}[{$id}][name]" type="text" placeholder="Название дополнительного поля" value="{$title|escape}"/>
+					</div>
+				</div>
+
+				<div class="mf-fields__field-setting">
+					<div class="mf-fields__field-setting-name">
+						Ключ дополнительного поля
+					</div>
+					<div class="mf-fields__field-setting-value">
+						<input class="j-mf-fields-field-key-input" name="{if $demo}demo_{/if}{$namespace}[{$id}][key]" type="text" placeholder="Ключ дополнительного поля" value="{$key|escape}"/>
+					</div>
+				</div>
+
+				<div class="mf-fields__field-setting">
+					<div class="mf-fields__field-setting-name">
+						Тип дополнительного поля
+					</div>
+					<div class="mf-fields__field-setting-value">
+						<select name="{if $demo}demo_{/if}{$namespace}[{$id}][type]">
+							{foreach $field_types as $type_id => $type_label}
+								{$is_selected = $type_id === $type}
+
+								<option value="{$type_id|escape}"{if $is_selected} selected="selected"{/if}>{$type_label|escape}</option>
+							{/foreach}
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	{/function}
+
+	<div class="mf-fields">
+		<div class="mf-fields__empty-message j-mf-fields-empty-message"{if $has_fields} style="display: none;"{/if}>
+			Пока что не создано ни одного дополнительного поля.
+		</div>
+
+		<div class="mf-fields__fields j-mf-fields-fields"{if !$has_fields} style="display: none;"{/if}>
+			{call render_field id='___ID___' title='' type='input' classes='j-mf-fields-field-template' demo=true}
+
+			{foreach $fields as $iterator => $field}
+				{call render_field id=$iterator title=$field.name key=$field.key|default:'' type=$field.type}
+			{/foreach}
+		</div>
+
+		<div class="mf-fields__create-field-container">
+			<a href="javascript: void(0);" class="inline-link j-mf-fields-create">
+				<i class="icon16 add"></i>
+
+				<b>
+					<i>
+						Добавить новое поле
+					</i>
+				</b>
+			</a>
+		</div>
+	</div>
+{/strip}

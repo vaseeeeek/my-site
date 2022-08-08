@@ -1,0 +1,23 @@
+.mf-control-file--uploaded .mf-control-file__upload-box {
+	display: none;
+}
+
+.mf-control-file__view-box {
+	display: none;
+}
+
+.mf-control-file--uploaded .mf-control-file__view-box {
+	display: block;
+}
+
+.mf-control-file__view-box-remove-link-container {
+	margin-top: 5px;
+}
+
+.mf-control-file__view-box-remove-link {
+	font-size: .8em;
+}
+
+.mf-control-file__upload-box-link-container {
+	margin-top: 10px;
+}

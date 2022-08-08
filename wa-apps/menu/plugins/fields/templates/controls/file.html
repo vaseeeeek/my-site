@@ -1,0 +1,41 @@
+{strip}
+	{$id = "j-mf-control-file-"|cat:uniqid()}
+	{$is_uploaded = !empty($params.value)}
+
+	<div class="mf-control mf-control--file">
+		<div id="{$id}" class="mf-control-file j-mf-control-file{if $is_uploaded} mf-control-file--uploaded{/if}" data-uploaded-class="mf-control-file--uploaded">
+			<input name="{$name|escape}" type="hidden" class="j-mf-control-file-value" value="{$params.value|default:''}">
+
+			<div class="mf-control-file__view-box">
+				<a href="{$params.value|default:''|escape}" class="mf-control-file__view-box-link j-mf-control-file-link inline-link" target="_blank">
+					<b>
+						<i>
+							Открыть загруженный файл
+						</i>
+					</b>
+
+					<i class="icon16 new-window"></i>
+				</a>
+
+				<div class="mf-control-file__view-box-remove-link-container">
+					<a href="#" class="mf-control-file__view-box-remove-link j-mf-control-file-remove-link">Удалить файл</a>
+				</div>
+			</div>
+
+			<div class="mf-control-file__upload-box">
+				<input type="file" class="mf-control-file__upload-box-input j-mf-control-file-upload-box-input">
+
+				<div class="mf-control-file__upload-box-link-container">
+					<a href="javascript: void 0;" class="mf-control-file__upload-box-link j-mf-control-file-upload-box-link">Загрузить</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{capture assign=resolves}{strip}
+		{
+			file: function () { window.menuFieldsFile($('#{$id}')) }
+		}
+	{/strip}{/capture}
+	{include "../util/assets_includer.html" assets=$assets resolves=$resolves inline}
+{/strip}

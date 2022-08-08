@@ -1,0 +1,80 @@
+.mf-fields {
+	margin-bottom: 15px;
+}
+
+.mf-fields__empty-message {
+	color: #999;
+}
+
+.mf-fields__create-field-container {
+	margin-top: 15px;
+}
+
+.mf-fields__field {
+	display: flex;
+	align-items: center;
+	padding: 5px 10px;
+}
+
+.mf-fields__field:nth-child(odd) {
+	background-color: #f1f8ff;
+}
+
+.mf-fields__field:nth-child(even) {
+	background-color: #f6f6f6;
+}
+
+.mf-fields__field:not(:last-child) {
+	margin-bottom: 15px;
+}
+
+.mf-fields__field:hover {
+	background-color: #feffda;
+}
+
+.mf-fields__field-label {
+	width: 170px;
+	display: flex;
+	align-items: center;
+}
+
+.mf-fields__field-code-container {
+	max-width: 130px;
+}
+
+.mf-fields__field-code {
+	display: inline-block;
+	padding: 3px;
+	background-color: #f6f6f6;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+.mf-fields__field-code--key {
+	white-space: inherit;
+	word-break: break-all;
+}
+
+.mf-fields__field-code:hover {
+	background-color: #f6f6f6;
+	border-color: #aaa;
+}
+
+.mf-fields__field-setting:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.mf-fields__field-setting-name {
+	color: #999;
+	margin-bottom: 5px;
+	font-size: .8em;
+}
+
+.mf-fields__field-setting-value input,
+.mf-fields__field-setting-value select {
+	width: 220px;
+}
+
+.mf-fields__field-delete-container {
+	margin-right: 10px;
+}

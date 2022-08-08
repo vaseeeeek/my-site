@@ -1,0 +1,17 @@
+{strip}
+	{$resolves = $resolves|default:"{ }"}
+
+	<script>
+		(function ($) {
+			function resolve () {
+				window.fields_assets_includer.include({$assets|json_encode}, {$resolves});
+			}
+
+			if (!window.fields_assets_includer) {
+				$.getScript('{menuFieldsTemplateUtil::getAssetsIncluderJsUrl()|escape}', resolve);
+			} else {
+				resolve();
+			}
+		})(jQuery);
+	</script>
+{/strip}
