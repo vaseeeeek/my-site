@@ -8,7 +8,7 @@ return array (
       'html' => 
       array (
         'header_top' => '
-<section class="a-product-violation" id="a-product-violation62fbeab2da91a" style="background-color: #ffcccc; padding: 10px;">
+<section class="a-product-violation" id="a-product-violation62fbf8cb5c717" style="background-color: #ffcccc; padding: 10px;">
     <form class="js-buy-product-form" method="POST" action="https://www.webasyst.ru/buy/apps/?utm_campaign=violation&utm_medium=backend&utm_source=installation-announce">
         <p style="margin: 0;">
             <i class="icon16 exclamation"></i>
@@ -25,7 +25,7 @@ return array (
 </section>
 <script>
     $(function () {
-        var $wrapper_id = $(\'#a-product-violation62fbeab2da91a\');
+        var $wrapper_id = $(\'#a-product-violation62fbf8cb5c717\');
         $wrapper_id.on(\'click\', \'.js-submit-button\', function (e) {
             e.preventDefault();
             var $link = $(this);
@@ -35,7 +35,7 @@ return array (
     });
 </script>',
         'notification' => '
-<section class="a-product-violation" id="a-product-violation62fbeab2db67a">
+<section class="a-product-violation" id="a-product-violation62fbf8cb5d41e">
     <form class="js-buy-product-form" method="POST" action="https://www.webasyst.ru/buy/apps/?utm_campaign=violation&utm_medium=backend&utm_source=installation-announce">
         <strong>У вас установлены нелицензионные программные продукты:</strong>  приложение <em>Shop-Script</em>.
 
@@ -49,7 +49,7 @@ return array (
 </section>
 <script>
     $(function () {
-        var $wrapper_id = $(\'#a-product-violation62fbeab2db67a\');
+        var $wrapper_id = $(\'#a-product-violation62fbf8cb5d41e\');
         $wrapper_id.on(\'click\', \'.js-submit-button\', function (e) {
             e.preventDefault();
             var $link = $(this);
@@ -65,7 +65,7 @@ return array (
       'html' => 
       array (
         'header_top' => '
-<section class="a-offer" id="a-offer62fbeab2dc450" style="background-color: #ffeeaa; padding: 10px;">
+<section class="a-offer" id="a-offer62fbf8cb5e133" style="background-color: #ffeeaa; padding: 10px;">
     <p style="margin: 0;">
 
             
@@ -75,7 +75,7 @@ return array (
     </p>
 </section>',
         'notification' => '
-<section class="a-offer" id="a-offer62fbeab2dcffa">
+<section class="a-offer" id="a-offer62fbf8cb5ee57">
     
             
                     <strong style="color: var(--text-color-strongest);">-50% на «Весь Webasyst» до 31 августа</strong>: комплект всех 15+ главных приложений Webasyst с максимальной скидкой и <b>выгодой до 70 994 рублей</b>. Чем больше приложений вы покупали ранее, тем ниже будет ваша персональная стоимость всего комплекта, а скидка сохранится. <input type="button" value="Купить весь Webasyst" onClick="window.location.href=\'https://www.webasyst.ru/buy/store/bundle/all-webasyst/\';"> &nbsp; <a href="https://www.webasyst.ru/pricing/#ownserver" target="_blank">Подробнее о комплекте</a>

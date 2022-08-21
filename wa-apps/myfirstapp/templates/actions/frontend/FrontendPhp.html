@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Php</title>
+    <link rel="stylesheet" href="{$wa_app_static_url}/css/reset.css">
+</head>
+<body>
+    <h1>Php</h1>
+        Примеры из Php
+    <div class="examples__list">
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Переменные</div>
+                <div class="examples__date">21.08.2022</div>
+            </div>
+            <ul>
+                <li>Переменные зависимы от регистра</li>
+                <li>Типы переменных:
+                    <ul>
+                        <li>
+                            <p>Interger (целое число)</p>
+                            <p>Пример: 1</p>
+                        </li>
+                        <li>
+                            <p>double (вещественное число)</p>
+                            <p>Пример: 0,00012->12x10e-4->1.2e-4</p>
+                        </li>
+                        <li>
+                            <p>string (Строка)</p>
+                            <p>Пример: "Значение строки"</p>
+                        </li>
+                        <li>
+                            <p>boolean (логический тип)</p>
+                            <p>Пример: true</p>
+                        </li>
+                        <li>
+                            <p>null (специальное значение)</p>
+                            <p>Пример: null</p>
+                        </li>
+                        <li>
+                            <p>callable (фунция обратного вызова)</p>
+                            <p>Пример: Некоторые функции могут принимтаь в качестве аргументов другие функции, которые называются "функциями обратного вызова"</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>Действия с переменными:
+                    <ul>
+                        <li>
+                            <p>Присвоение значения</p>
+                            <p>Пример: null</p>
+                        </li>
+                        <li>
+                            <p>Проверка существования</p>
+                            <p>Пример: isset($myVar)</p>
+                        </li>
+                        <li>
+                            <p>Уничтожение</p>
+                            <p>Пример: unset($myVar) или unset($myVar['ключ'])</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Определение типа переменной
+                    <ul>
+                        <li>is_int</li>
+                        <li>is_double</li>
+                        <li>is_infinite - бесконечное действительное число INF</li>
+                        <li>is_nan - недопустимое числовое значение</li>
+                        <li>is_string</li>
+                        <li>is_numeric - если является либо числом, либо строковым прелставлением число ( состоит из цифр и точки), рекомедуется использовать вместо is_integer  и is_double, потому что над числами содержащимися в строках можно выполнять обычные арифметические операции</li>
+                        <li>is_scalar - если это один из вышеперечисленных типов (сколярный)</li>
+                        <li>is_null</li>
+                        <li>is_array</li>
+                        <li>is_object</li>
+                        <li>gettype</li>
+                    </ul>
+                </li>
+                <li>Установка типа переменной
+                    <ul>
+                        <li>settype($var, $type)</li>
+                        <li>floatval - к вещественному числу</li>
+                        <li>strval</li>
+                        <li>intval</li>
+                        <li>Также в скобка перед переменной можно указать тип переменной
+                            int,bool,float,string,array,object,unset
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+        <div class="examples__item"></div>
+    </div>
+    <script src="{$wa_app_static_url}js/frontend/FrontendJavascript.js"></script>
+</body>
+</html>

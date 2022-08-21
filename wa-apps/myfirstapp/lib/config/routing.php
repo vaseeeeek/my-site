@@ -1,8 +1,12 @@
 <?php
 
 return array(
-    'test/' => array(
-        'module' => 'frontend',
-        'action' => 'test'
+    'javascript/' => array(
+        'module' => 'Frontend',
+        'action' => 'Javascript',
+    ),
+    'php/' => array(
+        'module' => 'Frontend',
+        'action' => 'Php',
     ),
 );
