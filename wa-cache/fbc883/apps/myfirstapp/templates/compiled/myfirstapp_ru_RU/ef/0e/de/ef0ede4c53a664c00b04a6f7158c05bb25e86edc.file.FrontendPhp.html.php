@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2022-08-21 22:15:14
+<?php /* Smarty version Smarty-3.1.14, created on 2022-08-22 22:26:16
          compiled from "C:\OpenServer\domains\my-site.ru\wa-apps\myfirstapp\templates\actions\frontend\FrontendPhp.html" */ ?>
 <?php /*%%SmartyHeaderCode:18958916863025864e76c78-58290082%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ef0ede4c53a664c00b04a6f7158c05bb25e86edc' => 
     array (
       0 => 'C:\\OpenServer\\domains\\my-site.ru\\wa-apps\\myfirstapp\\templates\\actions\\frontend\\FrontendPhp.html',
-      1 => 1661109313,
+      1 => 1661196373,
       2 => 'file',
     ),
   ),
@@ -41,7 +41,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class="examples__item">
             <div class="examples__title-date--box">
                 <div class="examples__title">Переменные</div>
-                <div class="examples__date">21.08.2022</div>
+                <blockquote class="examples__date">21.08.2022</blockquote>
             </div>
             <ul>
                 <li>Переменные зависимы от регистра</li>
@@ -118,10 +118,271 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </li>
             </ul>
         </div>
-        <div class="examples__item"></div>
-        <div class="examples__item"></div>
-        <div class="examples__item"></div>
-        <div class="examples__item"></div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Cookie</div>
+                <blockquote class="examples__date">22.08.2022</blockquote>
+            </div>
+
+            <ul>
+                <li>
+                    Установка Cookie
+                    <ul>
+                        <li>
+                            <p>Создание временной cookie</p>
+                            <p>setcookie("name", "John");</p>
+                        </li>
+                        <li>
+                            <p>Создание долговременной cookie на один час</p>
+                            <p>setcookie("name", "John", time()+3600);</p>
+                        </li>
+                        <li>
+                            <p>Cookie доступны один час по пути /docs/</p>
+                            <p>setcookie("name", "John", time()+3600, "/docs/");</p>
+                        </li>
+                        <li>
+                            <p>Cookie доступны один час по пути для всех поддоменов</p>
+                            <p>setcookie("name", "John", time()+3600, "/", ".example.com");</p>
+                        </li>
+                        <li>
+                            <p>Сookie можно отдавать только при https</p>
+                            <p>setcookie("name", "John", time()+3600, "/", ".example.com", true);</p>
+                        </li>
+                        <li>
+                            <p>Сookie можно отдавать только при http запросе</p>
+                            <p>setcookie("name", "John", time()+3600, "/", ".example.com", false, true);</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>// Внимание: ошибка!</p>
+                    <p>
+                        echo "Привет!";<br>
+                        setcookie("name", "John");<br>
+                        тк setcookie работает вначале страницы,как только передается не инструкция php, заголовок отправляется и с ней все куки что были указаны до.
+                    </p>
+                </li>
+                <li>
+                    <p>// Чтение cookie</p>
+                    <p>echo $_COOKIE["name"];</p>
+                </li>
+                <li>
+                    <p>// Удаление cookie
+                    </p>
+                    <p>setcookie("name", "John", time()-3600);
+                    </p>
+                </li>
+                <li>
+                    <p>// Массивы и cookie</p>
+                    <p>
+                        $user = [<br>
+                        'name' => 'John',<br>
+                        'login' => 'root',<br>
+                        'password' => '1234'<br>
+                        ];<br>
+                        $str = serialize($user);<br>
+                        setcookie("user",  $str);<br>
+
+                        $user = unserialize($_COOKIE["user"]);<br>
+                        print_r($user);<br>
+                    </p>
+                </li>
+                <li>
+                    <p>// Для сохранения целостности</p>
+                    <p>
+                        $str = base64_encode( serialize($user) );<br>
+                        setcookie("user",  $str);<br>
+
+                        $user = unserialize( base64_decode($_COOKIE["user"]) );<br>
+                        print_r($user);<br>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Заголовки Headers</div>
+                <blockquote class="examples__date">22.08.2022</blockquote>
+            </div>
+
+            <ul>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Установка типа содержимого</div>
+                        <blockquote class="examples__date">22.08.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>
+                            <p>// Принудительная установка типа передаваемого ресурса</p>
+                            <p>header("Content-Type: text/xml");</p>
+                        </li>
+                        <li>
+                            <p>// Принудительная установка кодировки передаваемого ресурса</p>
+                            <p>header("Content-Type: text/html; charset=utf-8");</p>
+                        </li>
+                        <li>
+                            <p>// Перенаправление вывода передаваемых данных</p>
+                            <p> header("Content-Type: text/plain");<br>
+                                header("Content-Disposition: attachment; filename=\"myfile.txt\"");
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Установка типа содержимого</div>
+                        <blockquote class="examples__date">22.08.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>
+                            <p>// Принудительная установка типа передаваемого ресурса</p>
+                            <p>header("Content-Type: text/xml");
+                            </p>
+                        </li>
+                        <li>
+                            <p>// Принудительная установка кодировки передаваемого ресурса
+                            </p>
+                            <p>header("Content-Type: text/html; charset=utf-8");
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                // Перенаправление вывода передаваемых данных
+                            </p>
+                            <p>
+                                header("Content-Type: text/plain");<br>
+                               header("Content-Disposition: attachment; filename=\"myfile.txt\"");
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Управление кэшированием</div>
+                        <blockquote class="examples__date">22.08.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>
+                            <p>// Запрет кэширования</p>
+                            <p>header("Cache-Control: no-cache, max-age=0");</p>
+                        </li>
+                        <li>
+                            <p>// Полный запрет кэширования</p>
+                            <p>header("Cache-Control: no-store");</p>
+                        </li>
+                        <li>
+                            <p>// Разрешение кэширования на один час относительно времени запроса
+                            </p>
+                            <p> header("Cache-Control: max-age=3600");
+                            </p>
+                        </li>
+                        <li>
+                            <p>// Разрешение кэширования на один час</p>
+                            <p>header("Expires: " . date("r", time() + 3600);</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="examples__item">
+
+            <div class="examples__title-date--box">
+                <div class="examples__title">Оператор</div>
+                <blockquote class="examples__date">22.08.2022</blockquote>
+            </div>
+
+            <ul>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Условные операторы</div>
+                        <blockquote class="examples__date">22.08.2022</blockquote>
+                        <ul>
+                            <li>
+                                <p>$x ? 'text1' : 'text2'</p>
+                                <p>если $x=true то text1, если false то text2</p>
+                            </li>
+                            <li>
+                                <p>$x ?: 'text2'</p>
+                                <p>если $x=false то text2</p>
+                            </li>
+                            <li>
+                                <p>$val = $peremennaya ?? false</p>
+                                <p>Если $premennaya != null; != false то переменная $val = $peremennaya</p>
+                                <p>Если $premennaya == null; == false то переменная $val = false (значению после ??)</p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            <ul>
+        </div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Буферизация</div>
+                <blockquote class="examples__date">22.08.2022</blockquote>
+
+                <ul>
+                    <li>
+                        <p>// Включаем буферизацию</p>
+                        <p>ob_start();<br>
+                            echo 'Hello world!';<br>
+                            setcookie("name", "John");</p>
+                    </li>
+                    <li>
+                        <p>// Посылаем содержимое буфера</p>
+                        <p>ob_flush();</p>
+                    </li>
+                    <li>
+                        <p>
+                            echo 'Ещё контент!';<br>
+                            echo 'И ещё контент!';</p>
+                        <p> // Посылаем содержимое буфера и отключаем его<br>
+                            ob_end_flush();</p>
+                    </li>
+                    <li>
+                        <p>// Посылаем содержимое буфера и отключаем его</p>
+                        <p>ob_end_flush();</p>
+                    </li>
+                    <li>
+                        <p>// Включаем буферизацию</p>
+                        <p>ob_start();</p>
+                    </li>
+                    <li>
+                        <p>echo "Hello ";</p>
+                        <p>// Выбираем то, что находится в буфере. Его содержимое на очищается!<br>
+                            $out1 = ob_get_contents();</p>
+                    </li>
+                    <li>
+                        <p>echo "World";</p>
+                        <p>// Выбираем то, что находится в буфере. Его содержимое на очищается!<br>
+                            $out2 = ob_get_contents();
+                        </p>
+                    </li>
+                    <li>
+                        <p> // А теперь очищаем буфер, но не закрываем
+                            </p>
+                        <p>ob_clean();</p>
+                    </li>
+                    <li>
+                        <p>echo "Саша";<br>
+                            echo " и ";<br>
+                            echo "Маша";</p>
+                    </li>
+                    <li>
+                        <p>// Выбираем то, что находится в буфере</p>
+                        <p>$out3 = ob_get_contents();</p>
+                    </li>
+                    <li>
+                        <p>// Очищаем буфер и закрываем его</p>
+                        <p>ob_end_clean();</p>
+                    </li>
+                    <li>
+                        <p>echo $out1; // Hello<br>
+                            echo $out2; // Hello World<br>
+                            echo $out3; // Саша и Маша</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
