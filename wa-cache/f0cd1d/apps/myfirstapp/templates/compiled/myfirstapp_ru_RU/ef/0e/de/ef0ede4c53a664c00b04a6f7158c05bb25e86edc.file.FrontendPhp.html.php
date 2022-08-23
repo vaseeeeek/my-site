@@ -1,4 +1,29 @@
-<!doctype html>
+<?php /* Smarty version Smarty-3.1.14, created on 2022-08-23 08:43:59
+         compiled from "C:\OpenServer\domains\my-site.ru\wa-apps\myfirstapp\templates\actions\frontend\FrontendPhp.html" */ ?>
+<?php /*%%SmartyHeaderCode:9979828516304691f26ba37-84319660%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'ef0ede4c53a664c00b04a6f7158c05bb25e86edc' => 
+    array (
+      0 => 'C:\\OpenServer\\domains\\my-site.ru\\wa-apps\\myfirstapp\\templates\\actions\\frontend\\FrontendPhp.html',
+      1 => 1661232797,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '9979828516304691f26ba37-84319660',
+  'function' => 
+  array (
+  ),
+  'variables' => 
+  array (
+    'wa_app_static_url' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_6304691f28fec9_73707875',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_6304691f28fec9_73707875')) {function content_6304691f28fec9_73707875($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,10 +31,11 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Php</title>
-    <link rel="stylesheet" href="{$wa_app_static_url}/css/reset.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['wa_app_static_url']->value;?>
+/css/reset.css">
 </head>
 <body>
-    {literal}
+    
     <h1>Php</h1>
         Примеры из Php
     <div class="examples__list">
@@ -257,7 +283,6 @@
                         </li>
                     </ul>
                 </li>
-
             </ul>
         </div>
         <div class="examples__item">
@@ -480,6 +505,6 @@
         <div class="examples__item"></div>
     </div>
     <script src="{$wa_app_static_url}js/frontend/FrontendJavascript.js"></script>
-    {/literal}
+    
 </body>
-</html>
+</html><?php }} ?>

@@ -1,4 +1,29 @@
-<!doctype html>
+<?php /* Smarty version Smarty-3.1.14, created on 2022-08-23 13:39:46
+         compiled from "C:\OpenServer\domains\my-site.ru\wa-apps\myfirstapp\templates\actions\frontend\FrontendJavascript.html" */ ?>
+<?php /*%%SmartyHeaderCode:589093317630498f6085065-54723328%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '7ce30e78a46db55a0c08c9ae9ca51214f7f17e17' => 
+    array (
+      0 => 'C:\\OpenServer\\domains\\my-site.ru\\wa-apps\\myfirstapp\\templates\\actions\\frontend\\FrontendJavascript.html',
+      1 => 1661250724,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '589093317630498f6085065-54723328',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_630498f60bdf12_49494066',
+  'variables' => 
+  array (
+    'wa_app_static_url' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_630498f60bdf12_49494066')) {function content_630498f60bdf12_49494066($_smarty_tpl) {?><!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,13 +31,14 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Javascript</title>
-    <link rel="stylesheet" href="{$wa_app_static_url}/css/reset.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['wa_app_static_url']->value;?>
+/css/reset.css">
 </head>
 <body>
     <h1>Javascript</h1>
         Примеры из Javascript
 
-    {literal}
+    
     <div class="examples__list">
         <div class="examples__item">
             <div class="examples__title-date--box">
@@ -102,84 +128,14 @@
                             <p>delete $myCity.popular</p>
                         </li>
                         <li>
-                            <p>Сокращенное обьявление свойств обьекта</p>
-                            <p>
-                                const name = "Vasek"<br>
-                                const dev = true <br>
-
-                                const userProfile = { <br>
-                                    name: name, <br>
-                                    dev: dev, <br>
-                                    position: "besOfTheBest" <br>
-                                }
-                            </p>
-                            <p>
-                                const name = "Vasek"<br>
-                                const dev = true <br>
-
-                                const userProfile = { <br>
-                                name, <br>
-                                dev, <br>
-                                position: "besOfTheBest" <br>
-                                }
-                            </p>
+                            <p></p>
+                            <p></p>
                         </li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <div class="examples__item">
-            <div class="examples__title-date--box">
-                <div class="examples__title">JSON</div>
-                <blockquote class="examples__date">23.08.2022</blockquote>
-            </div>
-            <ul>
-                <li>
-                    <div class="examples__title-date--box">
-                        <div class="examples__title">JSON методы</div>
-                        <blockquote class="examples__date">23.08.2022</blockquote>
-                    </div>
-                    <ul>
-                        <li>
-                            <p>Parse</p>
-                            <p>Из JSON в javascript обьект</p>
-                        </li>
-                        <li>
-                            <p>Stringify</p>
-                            <p>Из javascript обьекта в JSON обьект</p>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <p></p>
-                    <p></p>
-                </li>
-                <li>
-                    <p></p>
-                    <p></p>
-                </li>
-                <li>
-                    <p></p>
-                    <p></p>
-                </li>
-                <li>
-                    <p></p>
-                    <p></p>
-                </li>
-                <li>
-                    <p></p>
-                    <p></p>
-                </li>
-                <li>
-                    <p></p>
-                    <p></p>
-                </li>
-                <li>
-                    <p></p>
-                    <p></p>
-                </li>
-            </ul>
-        </div>
+        <div class="examples__item"></div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
@@ -279,7 +235,8 @@
         <div class="examples__item"></div>
         <div class="examples__item"></div>
     </div>
-    {/literal}
-    <script src="{$wa_app_static_url}js/frontend/FrontendJavascript.js"></script>
+    
+    <script src="<?php echo $_smarty_tpl->tpl_vars['wa_app_static_url']->value;?>
+js/frontend/FrontendJavascript.js"></script>
 </body>
-</html>
+</html><?php }} ?>

@@ -6,7 +6,7 @@ return array (
     'host' => 'localhost',
     'port' => false,
     'user' => 'root',
-    'password' => 'root',
+    'password' => '',
     'database' => 'my-site',
     'type' => 'mysqli',
     'sql_mode' => 'TRADITIONAL',
