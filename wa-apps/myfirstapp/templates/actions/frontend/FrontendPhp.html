@@ -623,8 +623,68 @@
                 </li>
             </ul>
         </div>
-        <div class="examples__item"></div>
-        <div class="examples__item"></div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Подключение файлов</div>
+                <blockquote class="examples__date">24.08.2022</blockquote>
+            </div>
+            <ul>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Подключение файлов</div>
+                        <blockquote class="examples__date">24.08.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>require</li>
+                        <li>require_once</li>
+                        <li>include</li>
+                        <li>include_once</li>
+                        <li>include в случае ошибки выдает ошибку и продолжает работу, require в случае ошибки выводит ерор и останавливает </li>
+                        <li>once - не подключает если на странице уже есть подключение</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Функции</div>
+                <blockquote class="examples__date">24.08.2022</blockquote>
+            </div>
+            <ul>
+                <li>
+                    <p>Для изменения переменной за пределами функции, аргументом нужно указывать ссылку на переменную</p>
+                    <p>
+                        $num = 10; <br>
+                        function numUp(&$a){ <br>
+                            $a++; <br>
+                        }; <br>
+                        numUp($num); <br>
+                        echo $num // 11 <br>
+                    </p>
+                </li>
+                <li>
+                    <p>Доступ к аргументам функций</p>
+                    <p>func_num_args()</p>
+                    <p>func_get_arg(int $num)</p>
+                    <p>func_num_args()</p>
+                </li>
+                <li>
+                    <p>статические переменные не уничтожаются после выполнения функции, похоже с замыканимем</p>
+                    <p>static $count = 0</p>
+                </li>
+                <li><p>рекурсия</p>
+                    <p>вызов функции внутри себя</p></li>
+                <li>
+                    <p>скрипт нормального дампа</p>
+                    <p>11.16</p>
+                </li>
+                <li>
+                    <p>Генераторы</p>
+                    <p>Изучить
+                    </p>
+                </li>
+            </ul>
+        </div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
