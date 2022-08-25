@@ -45,6 +45,11 @@
                             <p>var</p>
                             <p>Лучше не использовать</p>
                         </li>
+                        <li>
+                            <p>Деструктурирующее присваивание</p>
+                            <p>let [x,y] = [1,2] //let x = 1; let y = 2;</p>
+                            <p>let [x, ...y] = [1,2,3,4] // y = 2,3,4</p>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -63,6 +68,85 @@
                             <p>object(обьект)</p>
                             <p>Переменная хронящая обьект будет хранить только ссылку на обьет а не сам обьект</p>
                             <p>Поменяв значение в обьекте через одну переменную, вы меняете значение всех переменных ссылающихся на тот же обьект</p>
+                        </li>
+                        <li>
+                            <div class="examples__title-date--box">
+                                <div class="examples__title examples__title--lvl3">Обьекты (object)</div>
+                                <blockquote class="examples__date">25.08.2022</blockquote>
+                            </div>
+
+                            <p>Является ссылочным типом переменной</p>
+                            <p>
+                                const preson = { <br>
+                                name:'Bob', <br>
+                                age: 25; <br>
+                                } <br>
+
+                                const person2 = person; <br>
+                                person2.age = 26 <br>
+                                console.log(person.age) //26 <br>
+                                console.log(person2.age) //26 <br>
+                            </p>
+                            <p>
+                                const preson = { <br>
+                                name:'Bob', <br>
+                                age: 25; <br>
+                                } <br>
+
+                                const person3 = Object.assign({}, person); <br>
+                                person2.age = 26 <br>
+                                console.log(person.age) //25 <br>
+                                console.log(person2.age) //26 <br>
+                            </p>
+                            <p>
+                                const preson = { <br>
+                                name:'Bob', <br>
+                                age: 25; <br>
+                                } <br>
+
+                                const person3 = {... preson} // оператор "..." разделяет обьект на свойства, в данном случае мы разделяем обьект person на свойства нового обьекта, тем самым избавляемся от мутаций обьекта person при мутации обьекта person3<br>
+                                person2.age = 26 <br>
+                                console.log(person.age) //25 <br>
+                                console.log(person2.age) //26 <br>
+                            </p>
+                            <p>В перечисленных вариантах, с оператором "..." и Object.assign, вложанные обьекты в обьекте person3 (если такие были бы) имеют общую ссылку на главный обьет, а не копируют его</p>
+                            <p>
+                                const preson = { <br>
+                                name:'Bob', <br>
+                                age: 25; <br>
+                                } <br>
+
+                                const person3 = JSON.parse(JSON.stringify(person)) // полное копирование с учетом вложенных обьектов в обьект person<br>
+                                person2.age = 26 <br>
+                                console.log(person.age) //25 <br>
+                                console.log(person2.age) //26 <br>
+                            </p>
+                        </li>
+                        <li>
+
+                            <div class="examples__title-date--box">
+                                <div class="examples__title examples__title--lvl3">Обьявление переменных</div>
+                                <blockquote class="examples__date">23.08.2022</blockquote>
+                            </div>
+
+                            <ul>
+                                <li>
+                                    <p>var</p>
+                                    <p>Не имеет блочной области видимости <br>
+                                        Является свойстов обьекта globalThis <br>
+                                        Переменную можно обьявлять несколько раз <br>
+                                        К ней можно обратить до инициализации
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>let</p>
+                                    <p>Нельзя обратиться до инициализации</p>
+                                </li>
+                                <li>
+                                    <p>const</p>
+                                    <p>Нельзя обратиться до инициализации</p>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -159,68 +243,6 @@
         </div>
         <div class="examples__item">
             <div class="examples__title-date--box">
-                <div class="examples__title">Типы переменных</div>
-                <blockquote class="examples__date">25.08.2022</blockquote>
-            </div>
-
-            <ul>
-                <li>
-                    <div class="examples__title-date--box">
-                        <div class="examples__title examples__title--lvl2">Обьекты (object)</div>
-                        <blockquote class="examples__date">25.08.2022</blockquote>
-                    </div>
-
-                    <p>Является ссылочным типом переменной</p>
-                    <p>
-                        const preson = { <br>
-                            name:'Bob', <br>
-                            age: 25; <br>
-                        } <br>
-
-                        const person2 = person; <br>
-                        person2.age = 26 <br>
-                        console.log(person.age) //26 <br>
-                        console.log(person2.age) //26 <br>
-                    </p>
-                    <p>
-                        const preson = { <br>
-                            name:'Bob', <br>
-                            age: 25; <br>
-                        } <br>
-
-                        const person3 = Object.assign({}, person); <br>
-                        person2.age = 26 <br>
-                        console.log(person.age) //25 <br>
-                        console.log(person2.age) //26 <br>
-                    </p>
-                    <p>
-                        const preson = { <br>
-                        name:'Bob', <br>
-                        age: 25; <br>
-                        } <br>
-
-                        const person3 = {... preson} // оператор "..." разделяет обьект на свойства, в данном случае мы разделяем обьект person на свойства нового обьекта, тем самым избавляемся от мутаций обьекта person при мутации обьекта person3<br>
-                        person2.age = 26 <br>
-                        console.log(person.age) //25 <br>
-                        console.log(person2.age) //26 <br>
-                    </p>
-                    <p>В перечисленных вариантах, с оператором "..." и Object.assign, вложанные обьекты в обьекте person3 (если такие были бы) имеют общую ссылку на главный обьет, а не копируют его</p>
-                    <p>
-                        const preson = { <br>
-                        name:'Bob', <br>
-                        age: 25; <br>
-                        } <br>
-
-                        const person3 = JSON.parse(JSON.stringify(person)) // полное копирование с учетом вложенных обьектов в обьект person<br>
-                        person2.age = 26 <br>
-                        console.log(person.age) //25 <br>
-                        console.log(person2.age) //26 <br>
-                    </p>
-                </li>
-            </ul>
-        </div>
-        <div class="examples__item">
-            <div class="examples__title-date--box">
                 <div class="examples__title">Функции</div>
                 <blockquote class="examples__date">25.08.2022</blockquote>
             </div>
@@ -228,6 +250,12 @@
             <ul>
                 <li>Функция возвращает undifiend если нет return</li>
                 <li>Аргументы функции передаются в вызове, а параметры в обьявлении функции</li>
+                <li>Внутри функци НЕ РЕКОМЕНДУЕТСЯ редактировать внешние обьекты</li>
+                <li>callback функция - функция которая передается аргументом в другую функцию</li>
+                <li>Во время вызова функции callback аргумент передается без - ()</li>
+                <li>Одна функция должна выполнять одну задачу</li>
+                <li>Переменные обьявленные в блоках ("{код блока}") имеют локальную область видимости данного блока</li>
+                <li>В случае указания значения переменной, без ее обьвяления, переменная создается автоматически в глобальной области видимости</li>
             </ul>
         </div>
         <div class="examples__item"></div>
