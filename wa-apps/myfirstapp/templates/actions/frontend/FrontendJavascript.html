@@ -150,10 +150,86 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <p>Посмотреть JSON запросы можно</p>
+                    <p>Network->fetch/XHR</p>
+                    <p>Просмот вкладка Preview</p>
+                </li>
             </ul>
         </div>
-        <div class="examples__item"></div>
-        <div class="examples__item"></div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Типы переменных</div>
+                <blockquote class="examples__date">25.08.2022</blockquote>
+            </div>
+
+            <ul>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Обьекты (object)</div>
+                        <blockquote class="examples__date">25.08.2022</blockquote>
+                    </div>
+
+                    <p>Является ссылочным типом переменной</p>
+                    <p>
+                        const preson = { <br>
+                            name:'Bob', <br>
+                            age: 25; <br>
+                        } <br>
+
+                        const person2 = person; <br>
+                        person2.age = 26 <br>
+                        console.log(person.age) //26 <br>
+                        console.log(person2.age) //26 <br>
+                    </p>
+                    <p>
+                        const preson = { <br>
+                            name:'Bob', <br>
+                            age: 25; <br>
+                        } <br>
+
+                        const person3 = Object.assign({}, person); <br>
+                        person2.age = 26 <br>
+                        console.log(person.age) //25 <br>
+                        console.log(person2.age) //26 <br>
+                    </p>
+                    <p>
+                        const preson = { <br>
+                        name:'Bob', <br>
+                        age: 25; <br>
+                        } <br>
+
+                        const person3 = {... preson} // оператор "..." разделяет обьект на свойства, в данном случае мы разделяем обьект person на свойства нового обьекта, тем самым избавляемся от мутаций обьекта person при мутации обьекта person3<br>
+                        person2.age = 26 <br>
+                        console.log(person.age) //25 <br>
+                        console.log(person2.age) //26 <br>
+                    </p>
+                    <p>В перечисленных вариантах, с оператором "..." и Object.assign, вложанные обьекты в обьекте person3 (если такие были бы) имеют общую ссылку на главный обьет, а не копируют его</p>
+                    <p>
+                        const preson = { <br>
+                        name:'Bob', <br>
+                        age: 25; <br>
+                        } <br>
+
+                        const person3 = JSON.parse(JSON.stringify(person)) // полное копирование с учетом вложенных обьектов в обьект person<br>
+                        person2.age = 26 <br>
+                        console.log(person.age) //25 <br>
+                        console.log(person2.age) //26 <br>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Функции</div>
+                <blockquote class="examples__date">25.08.2022</blockquote>
+            </div>
+
+            <ul>
+                <li>Функция возвращает undifiend если нет return</li>
+                <li>Аргументы функции передаются в вызове, а параметры в обьявлении функции</li>
+            </ul>
+        </div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
