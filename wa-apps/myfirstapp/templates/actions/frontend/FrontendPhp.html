@@ -441,7 +441,7 @@
         </div>
         <div class="examples__item">
             <div class="examples__title-date--box">
-                <div class="examples__title">Сессия</div>
+                <div class="examples__title">Файлы</div>
                 <blockquote class="examples__date">24.08.2022</blockquote>
             </div>
 
@@ -621,26 +621,144 @@
                         unlink("file-to-delete.txt");
                     </p>
                 </li>
-            </ul>
-        </div>
-        <div class="examples__item">
-            <div class="examples__title-date--box">
-                <div class="examples__title">Подключение файлов</div>
-                <blockquote class="examples__date">24.08.2022</blockquote>
-            </div>
-            <ul>
                 <li>
                     <div class="examples__title-date--box">
                         <div class="examples__title examples__title--lvl2">Подключение файлов</div>
                         <blockquote class="examples__date">24.08.2022</blockquote>
                     </div>
                     <ul>
-                        <li>require</li>
-                        <li>require_once</li>
-                        <li>include</li>
-                        <li>include_once</li>
-                        <li>include в случае ошибки выдает ошибку и продолжает работу, require в случае ошибки выводит ерор и останавливает </li>
-                        <li>once - не подключает если на странице уже есть подключение</li>
+                        <li>
+                            <div class="examples__title-date--box">
+                                <div class="examples__title examples__title--lvl2">Подключение файлов</div>
+                                <blockquote class="examples__date">24.08.2022</blockquote>
+                            </div>
+                            <ul>
+                                <li>require</li>
+                                <li>require_once</li>
+                                <li>include</li>
+                                <li>include_once</li>
+                                <li>include в случае ошибки выдает ошибку и продолжает работу, require в случае ошибки выводит ерор и останавливает </li>
+                                <li>once - не подключает если на странице уже есть подключение</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Работа с директориями</div>
+                        <blockquote class="examples__date">30.08.2022</blockquote>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <p>// Создание директории
+                            </p>
+                            <p>mkdir("newdir");
+                            </p>
+                        </li>
+                        <li>
+                            <p>// Удаление директории
+                            </p>
+                            <p>rmdir("dir-to-delete");
+                            </p>
+                        </li>
+                        <li>
+                            <p>// Имя текущей директории
+                            </p>
+                            <p>echo getcwd();
+                            </p>
+                        </li>
+                        <li>
+                            <p>// Заходим в текущую директорию
+                            </p>
+                            <p>$dir = opendir(".");
+                            </p>
+                        </li>
+                        <li>
+                            <p>// Читаем содержимое директории
+                            </p>
+                            <p>while ( $name = readdir($dir) ){ <br>
+                                if(is_dir($name)) <br>
+                                echo '[' . $name . ']<br>'; <br>
+                                else <br>
+                                echo $name . '<br>'; <br>
+                                }
+                            </p>
+                        </li>
+                        <li>
+                            <p>// Выходим из директории
+                            </p>
+                            <p>closedir($dir);
+                            </p>
+                        </li>
+                        <li>
+                            <p>// Читаем содержимое директории в массив
+                            </p>
+                            <p>$dir_content = scandir(".");
+                            </p>
+                        </li>
+                        <li>
+                            <p>// Читаем определённое содержимое директории в массив
+                            </p>
+                            <p>$dir_txt_content = glob("*.txt");
+                            </p>
+                        </li>
+                        <li>
+                            <p>scandir(".")</p>
+                            <p>Вывести содержимое по алфавиту</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Загрузка файлов на сервер</div>
+                        <blockquote class="examples__date">31.08.2022</blockquote>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <?php
+                                 * Настройки PHP.INI
+                                 * file_uploads = "1"
+                                 * upload_max_filesize = "2M"
+                                 * post_max_size = "8M"
+                                 * max_file_uploads = 20
+                                 * upload_tmp_dir =
+                                 * max_input_time = "-1"
+                                */
+                            ?>
+
+                            <form enctype="multipart/form-data" method="POST" action="" >
+                                <input type="hidden" name="MAX_FILE_SIZE" value="4096" />
+                                <input name="userfile" type="file" />
+                                <input type="submit" />
+                            </form>
+
+                            <?php
+                                if ( $_FILES["userfile"]["error"] != UPLOAD_ERR_OK ){
+
+                                    switch($_FILES["userfile"]["error"]){
+                                        case UPLOAD_ERR_INI_SIZE:
+                                            echo "Превышен максимально допустимый размер"; break;
+                                        case UPLOAD_ERR_FORM_SIZE:
+                                            echo "Превышено значение MAX_FILE_SIZE"; break;
+                                        case UPLOAD_ERR_PARTIAL:
+                                            echo "Файл загружен частично"; break;
+                                        case UPLOAD_ERR_NO_FILE:
+                                            echo "Файл не был загружен"; break;
+                                        case UPLOAD_ERR_NO_TMP_DIR:
+                                            echo "Отсутствует временная папка"; break;
+                                        case UPLOAD_ERR_CANT_WRITE:
+                                            echo "Не удалось записать файл не диск";
+                                    }
+
+                                }else{
+                                    echo "Размер загруженного файла: " . $_FILES["userfile"]["size"];
+                                    echo "Тип загруженного файла: " . $_FILES["userfile"]["type"];
+                                    move_uploaded_file($_FILES["userfile"]["tmp_name"], "upload/" . $_FILES["userfile"]["name"]);
+                                }
+
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -687,7 +805,49 @@
                 </li>
             </ul>
         </div>
-        <div class="examples__item"></div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Основные манипуляции с данными</div>
+                <blockquote class="examples__date">01.09.2022</blockquote>
+            </div>
+            <ul>
+                <li>
+                    <p>Выборка данных</p>
+                    <p>
+                        SELECT name FROM teachers <br
+
+                        SELECT name, addr, city <br>
+                        FROM teachers <br
+                        ORDER BY name <br
+
+                        SELECT title <br>
+                        FROM courses <br>
+                        WHERE length > 30 <br
+
+                        SELECT * <br>
+                        FROM courses <br>
+                        WHERE length > 30 <br
+                        AND title LIKE 'Web%' <br
+
+                        SELECT DISTINCT length <b
+                        FROM courses <br>
+                    </p>
+                </li>
+                <li>
+                    <p>Объединение таблиц</p>
+                    <p>
+                        SELECT t.name, t.code, l.course <br>
+                        FROM teachers t <br>
+                        INNER JOIN lessons l ON t.id = l.tid <br>
+                    </p>
+                    <p>
+                        SELECT t.name, t.code, l.course <br>
+                        FROM teachers t <br>
+                        LEFT OUTER JOIN lessons l ON t.id = l.tid <br>
+                    </p>
+                </li>
+            </ul>
+        </div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>

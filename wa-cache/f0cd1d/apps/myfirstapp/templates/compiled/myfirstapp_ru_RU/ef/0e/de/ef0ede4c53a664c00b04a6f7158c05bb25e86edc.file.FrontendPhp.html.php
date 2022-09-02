@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.14, created on 2022-08-23 08:43:59
+<?php /* Smarty version Smarty-3.1.14, created on 2022-08-30 14:25:11
          compiled from "C:\OpenServer\domains\my-site.ru\wa-apps\myfirstapp\templates\actions\frontend\FrontendPhp.html" */ ?>
 <?php /*%%SmartyHeaderCode:9979828516304691f26ba37-84319660%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ef0ede4c53a664c00b04a6f7158c05bb25e86edc' => 
     array (
       0 => 'C:\\OpenServer\\domains\\my-site.ru\\wa-apps\\myfirstapp\\templates\\actions\\frontend\\FrontendPhp.html',
-      1 => 1661232797,
+      1 => 1661406720,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.14',
+  'unifunc' => 'content_6304691f28fec9_73707875',
   'variables' => 
   array (
     'wa_app_static_url' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.14',
-  'unifunc' => 'content_6304691f28fec9_73707875',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_6304691f28fec9_73707875')) {function content_6304691f28fec9_73707875($_smarty_tpl) {?><!doctype html>
 <html lang="en">
@@ -283,6 +283,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         </li>
                     </ul>
                 </li>
+
             </ul>
         </div>
         <div class="examples__item">
@@ -320,73 +321,75 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             <div class="examples__title-date--box">
                 <div class="examples__title">Буферизация</div>
                 <blockquote class="examples__date">22.08.2022</blockquote>
-
-                <ul>
-                    <li>
-                        <p>// Включаем буферизацию</p>
-                        <p>ob_start();<br>
-                            echo 'Hello world!';<br>
-                            setcookie("name", "John");</p>
-                    </li>
-                    <li>
-                        <p>// Посылаем содержимое буфера</p>
-                        <p>ob_flush();</p>
-                    </li>
-                    <li>
-                        <p>
-                            echo 'Ещё контент!';<br>
-                            echo 'И ещё контент!';</p>
-                        <p> // Посылаем содержимое буфера и отключаем его<br>
-                            ob_end_flush();</p>
-                    </li>
-                    <li>
-                        <p>// Посылаем содержимое буфера и отключаем его</p>
-                        <p>ob_end_flush();</p>
-                    </li>
-                    <li>
-                        <p>// Включаем буферизацию</p>
-                        <p>ob_start();</p>
-                    </li>
-                    <li>
-                        <p>echo "Hello ";</p>
-                        <p>// Выбираем то, что находится в буфере. Его содержимое на очищается!<br>
-                            $out1 = ob_get_contents();</p>
-                    </li>
-                    <li>
-                        <p>echo "World";</p>
-                        <p>// Выбираем то, что находится в буфере. Его содержимое на очищается!<br>
-                            $out2 = ob_get_contents();
-                        </p>
-                    </li>
-                    <li>
-                        <p> // А теперь очищаем буфер, но не закрываем
-                            </p>
-                        <p>ob_clean();</p>
-                    </li>
-                    <li>
-                        <p>echo "Саша";<br>
-                            echo " и ";<br>
-                            echo "Маша";</p>
-                    </li>
-                    <li>
-                        <p>// Выбираем то, что находится в буфере</p>
-                        <p>$out3 = ob_get_contents();</p>
-                    </li>
-                    <li>
-                        <p>// Очищаем буфер и закрываем его</p>
-                        <p>ob_end_clean();</p>
-                    </li>
-                    <li>
-                        <p>echo $out1; // Hello<br>
-                            echo $out2; // Hello World<br>
-                            echo $out3; // Саша и Маша</p>
-                    </li>
-                </ul>
             </div>
+
+            <ul>
+                <li>
+                    <p>// Включаем буферизацию</p>
+                    <p>ob_start();<br>
+                        echo 'Hello world!';<br>
+                        setcookie("name", "John");</p>
+                </li>
+                <li>
+                    <p>// Посылаем содержимое буфера</p>
+                    <p>ob_flush();</p>
+                </li>
+                <li>
+                    <p>
+                        echo 'Ещё контент!';<br>
+                        echo 'И ещё контент!';</p>
+                    <p> // Посылаем содержимое буфера и отключаем его<br>
+                        ob_end_flush();</p>
+                </li>
+                <li>
+                    <p>// Посылаем содержимое буфера и отключаем его</p>
+                    <p>ob_end_flush();</p>
+                </li>
+                <li>
+                    <p>// Включаем буферизацию</p>
+                    <p>ob_start();</p>
+                </li>
+                <li>
+                    <p>echo "Hello ";</p>
+                    <p>// Выбираем то, что находится в буфере. Его содержимое на очищается!<br>
+                        $out1 = ob_get_contents();</p>
+                </li>
+                <li>
+                    <p>echo "World";</p>
+                    <p>// Выбираем то, что находится в буфере. Его содержимое на очищается!<br>
+                        $out2 = ob_get_contents();
+                    </p>
+                </li>
+                <li>
+                    <p> // А теперь очищаем буфер, но не закрываем
+                        </p>
+                    <p>ob_clean();</p>
+                </li>
+                <li>
+                    <p>echo "Саша";<br>
+                        echo " и ";<br>
+                        echo "Маша";</p>
+                </li>
+                <li>
+                    <p>// Выбираем то, что находится в буфере</p>
+                    <p>$out3 = ob_get_contents();</p>
+                </li>
+                <li>
+                    <p>// Очищаем буфер и закрываем его</p>
+                    <p>ob_end_clean();</p>
+                </li>
+                <li>
+                    <p>echo $out1; // Hello<br>
+                        echo $out2; // Hello World<br>
+                        echo $out3; // Саша и Маша</p>
+                </li>
+            </ul>
         </div>
         <div class="examples__item">
-            <div class="examples__title">Форма</div>
-            <blockquote class="examples__date">22.08.2022</blockquote>
+            <div class="examples__title-date--box">
+                <div class="examples__title">Форма</div>
+                <blockquote class="examples__date">22.08.2022</blockquote>
+            </div>
 
             <ul>
                 <li>
@@ -409,10 +412,307 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 </li>
             </ul>
         </div>
-        <div class="examples__item"></div>
-        <div class="examples__item"></div>
-        <div class="examples__item"></div>
-        <div class="examples__item"></div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Сессия</div>
+                <blockquote class="examples__date">24.08.2022</blockquote>
+            </div>
+            <ul>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Управление сеансами</div>
+                        <blockquote class="examples__date">24.08.2022</blockquote>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <p>// Создание и(или) доступ к сессии</p>
+                            <p>session_start();</p>
+                        </li>
+                        <li>
+                            <p>// Запись в сессионную переменную</p>
+                            <p>$_SESSION['name'] = 'John';</p>
+                        </li>
+                        <li>
+                            <p>// Чтение из сессионной переменной</p>
+                            <p>echo $_SESSION['name'];</p>
+                        </li>
+                        <li>
+                            <p>// Очистка сессионных переменных</p>
+                            <p>session_destroy();</p>
+                        </li>
+                        <li>
+                            <p>// Принудительное удаление сессионной cookie</p>
+                            <p>setcookie(session_name(), session_id(), time()-3600);</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Дополнительные параметры сеанса
+                        </div>
+                        <blockquote class="examples__date">24.08.2022</blockquote>
+                    </div>
+                    <p>
+                        // session.auto_start = 0<br>
+                        ini_set('session.name', 'PHPSESSID');<br>
+                        ini_set('session.save_path', '');<br>
+                        ini_set('session.gc_maxlifetime', '1440');<br>
+                        ini_set('session.cookie_lifetime', '0');<br>
+                        ini_set('session.cookie_httponly', '');<br>
+                        ini_set('session.cookie_path', '/');<br>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Сессия</div>
+                <blockquote class="examples__date">24.08.2022</blockquote>
+            </div>
+
+            <ul>
+                <li>
+                    Полезные функции
+                    <ul>
+                        <li>
+                            <p>// Проверка файлов и директорий на существование</p>
+                            <p>
+                                if( file_exists("file.txt") ){<br>
+                                    echo "Файл или директория существует";<br>
+                                }<br>
+                                if( is_file("file.txt") ){<br>
+                                    echo "Файл существует";<br>
+                                }<br>
+
+                                if( is_dit("images") ){<br>
+                                    echo "Директория существует";<br>
+                                }
+                            </p>
+                        </li>
+                        <li>
+                            <p>// Размер файла</p>
+                            <p>echo "Длина файла file.txt: " . filesize("file.txt");</p>
+                        </li>
+                        <li>
+                            <p>// Время изменения и доступа к файлу</p>
+                            <p>echo "Файл file.txt был изменён: " . filemtime("file.txt");<br>
+                                echo "и запрошен: " . fileatime("file.txt");</p>
+                        </li>
+                        <li>
+                            <p>// Что можно с файлом делать?</p>
+                            <p>if( is_readable("file.txt") ){<br>
+                                    echo "Файл можно читать";<br>
+                                }<br>
+
+                                if( is_writable("file.txt") ){<br>
+                                    echo "В файл можно писать";<br>
+                                }<br>
+
+                                if( is_executable("file.exe") ){<br>
+                                    echo "Файл можно исполнять";<br>
+                                }
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>
+                        // Открытие потока на чтение и получение его дескриптора <br>
+                        $f = fopen("file.txt", "r") or die("Не могу открыть файл!"); <br>
+
+                        // Закрытие потока <br>
+                        fclose($f); <br>
+
+                        // Открытие потока на чтение и запись <br>
+                        $f = fopen("file.txt", "r+"); <br>
+                        // Открытие потока на запись. Указатель помещается в конец файла <br>
+                        $f = fopen("file.txt", "a"); <br>
+                        // Открытие потока на чтение и запись. Указатель помещается в конец файла <br>
+                        $f = fopen("file.txt", "a+"); <br>
+                        // Открытие потока на запись. Файл обрезается до нулевой длины <br>
+                        $f = fopen("file.txt", "w"); <br>
+                        // Открытие потока на чтение и запись. Файл обрезается до нулевой длины <br>
+                        $f = fopen("file.txt", "w+"); <br>
+
+
+                        // Читаем файл кусками <br>
+                        $f = fopen("file.txt", "r"); <br>
+                        // Читаем первые 5 байт из потока <br>
+                        echo fread($f, 5); <br>
+                        // Читаем следующие 3 байта из потока <br>
+                        echo fread($f, 3); <br>
+                        // Выводим всё с текущей позиции до конца <br>
+                        fpassthru($f); <br>
+                        fclose($f); <br>
+
+                        // Читаем файл построчно в массив <br>
+                        $f = fopen("file.txt", "r"); <br>
+                        $lines = []; <br>
+                        while ( $line = fgets($f) ){ <br>
+                        $lines[] = $line; <br>
+                        } <br>
+                        fclose($f); <br>
+
+                        // Читаем файл построчно в массив и вырезаем html-тэги, оставляя нужные <br>
+                        $f = fopen("file.html", "r"); <br>
+                        $lines = []; <br>
+                        while ( $line = fgetss($f, 4096, "<p><br>") ){ <br>
+                        $lines[] = $line; <br>
+                        } <br>
+                        fclose($f); <br>
+
+                        // Читаем файл побайтово в массив <br>
+                        $f = fopen("file.txt", "r"); <br>
+                        $bytes = []; <br>
+                        while ( !feof($f) ){ <br>
+                        $bytes[] = fgetc($f); <br>
+                        } <br>
+                        fclose($f); <br>
+
+
+                        // Пишем файл <br>
+                        $f = fopen("file.txt", "r+"); <br>
+                        fwrite($f, "Новый текст", 25); <br>
+                        fclose($f); <br>
+
+
+                        // Пишем в конец файла <br>
+                        $f = fopen("file.txt", "a"); <br>
+                        fputs($f, "\nНовая строка"); <br>
+                        fclose($f); <br>
+
+
+                        // Читаем последние 10 байт из потока <br>
+                        $f = fopen("file.txt", "r"); <br>
+                        // Устанавливаем указатель в нужную позицию <br>
+                        fseek($f, -10, SEEK_END); <br>
+                        // В какой позиции мы находимся? <br>
+                        echo ftell($f); <br>
+                        // Читаем данные <br>
+                        echo fread($f, 10); <br>
+                        // Устанавливаем указатель в начало потока <br>
+                        rewind($f); <br>
+                        fclose($f); <br>
+
+                    </p>
+                </li>
+                <li>
+                    <p>Прямая работа с файлами</p>
+                    <p>// Читаем весь файл напрямую в буфер вывода <br>
+                        readfile("file.txt"); <br>
+                        // Что и <br>
+                        $f = fopen("file.txt", "r"); <br>
+                        echo fread($f, filesize("file.txt")); <br>
+                        fclose($f); <br>
+
+                        // Читаем файл построчно в массив <br>
+                        $lines = file("file.txt");; <br>
+                        // Что и <br>
+                        $f = fopen("file.txt", "r"); <br>
+                        while ( $lines[] = fgets($f) ); <br>
+                        fclose($f); <br>
+
+                        // Получаем весь файл в виде строки <br>
+                        $file = file_get_contents("file.txt"); <br>
+                        // Что и <br>
+                        $f = fopen("file.txt", "r"); <br>
+                        $file = fread($f, filesize("file.txt")); <br>
+                        fclose($f); <br>
+
+                        // Пишем в файл затирая содержимое <br>
+                        file_put_contents("file.txt", "Новое содержимое"); <br>
+                        // Что и <br>
+                        $f = fopen("file.txt", "w"); <br>
+                        fputs($f, "Новое содержимое"); <br>
+                        fclose($f); <br>
+
+                        // Пишем в файл добавляя содержимое в конец <br>
+                        file_put_contents("file.txt", "Новое содержимое", FILE_APPEND); <br>
+                        // Что и <br>
+                        $f = fopen("file.txt", "a"); <br>
+                        fputs($f, "Новое содержимое"); <br>
+                        fclose($f); <br>
+                    </p>
+                </li>
+                <li>
+                    <p>Управление файлами</p>
+                    <p>// Копируем файл
+                        copy("source.txt", "destination.txt");
+
+                        // Переименовываем файл
+                        rename("old.txt", "new.txt");
+
+                        // Удаляем файл
+                        unlink("file-to-delete.txt");
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Подключение файлов</div>
+                <blockquote class="examples__date">24.08.2022</blockquote>
+            </div>
+            <ul>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Подключение файлов</div>
+                        <blockquote class="examples__date">24.08.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>require</li>
+                        <li>require_once</li>
+                        <li>include</li>
+                        <li>include_once</li>
+                        <li>include в случае ошибки выдает ошибку и продолжает работу, require в случае ошибки выводит ерор и останавливает </li>
+                        <li>once - не подключает если на странице уже есть подключение</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="examples__item">
+            <div class="examples__title-date--box">
+                <div class="examples__title">Функции</div>
+                <blockquote class="examples__date">24.08.2022</blockquote>
+            </div>
+            <ul>
+                <li>
+                    <p>Для изменения переменной за пределами функции, аргументом нужно указывать ссылку на переменную</p>
+                    <p>
+                        $num = 10; <br>
+                        function numUp(&$a){ <br>
+                            $a++; <br>
+                        }; <br>
+                        numUp($num); <br>
+                        echo $num // 11 <br>
+                    </p>
+                </li>
+                <li>
+                    <p>Доступ к аргументам функций</p>
+                    <p>func_num_args()</p>
+                    <p>func_get_arg(int $num)</p>
+                    <p>func_num_args()</p>
+                </li>
+                <li>
+                    <p>статические переменные не уничтожаются после выполнения функции, похоже с замыканимем</p>
+                    <p>static $count = 0</p>
+                </li>
+                <li><p>рекурсия</p>
+                    <p>вызов функции внутри себя</p></li>
+                <li>
+                    <p>скрипт нормального дампа</p>
+                    <p>11.16</p>
+                </li>
+                <li>
+                    <p>Генераторы</p>
+                    <p>
+                        функция делает множество return с помощью yield
+                    </p>
+                    <a href="https://www.php.net/manual/ru/language.generators.overview.php">Пример</a>
+                </li>
+            </ul>
+        </div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
