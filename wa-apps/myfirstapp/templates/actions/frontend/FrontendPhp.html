@@ -807,48 +807,217 @@
         </div>
         <div class="examples__item">
             <div class="examples__title-date--box">
-                <div class="examples__title">Основные манипуляции с данными</div>
-                <blockquote class="examples__date">01.09.2022</blockquote>
+                <div class="examples__title">SQL</div>
+                <blockquote class="examples__date">24.08.2022</blockquote>
             </div>
             <ul>
                 <li>
-                    <p>Выборка данных</p>
-                    <p>
-                        SELECT name FROM teachers <br
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Основные манипуляции с данными</div>
+                        <blockquote class="examples__date">01.09.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>
+                            <p>Выборка данных</p>
+                            <p>
+                                SELECT name FROM teachers <br
 
-                        SELECT name, addr, city <br>
-                        FROM teachers <br
-                        ORDER BY name <br
+                                        SELECT name, addr, city <br>
+                                FROM teachers <br
+                                        ORDER BY name <br
 
-                        SELECT title <br>
-                        FROM courses <br>
-                        WHERE length > 30 <br
+                                        SELECT title <br>
+                                FROM courses <br>
+                                WHERE length > 30 <br
 
-                        SELECT * <br>
-                        FROM courses <br>
-                        WHERE length > 30 <br
-                        AND title LIKE 'Web%' <br
+                                        SELECT * <br>
+                                FROM courses <br>
+                                WHERE length > 30 <br
+                                        AND title LIKE 'Web%' <br
 
-                        SELECT DISTINCT length <b
-                        FROM courses <br>
-                    </p>
+                                        SELECT DISTINCT length <b
+                                        FROM courses <br>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Объединение таблиц</p>
+                            <p>
+                                SELECT t.name, t.code, l.course <br>
+                                FROM teachers t <br>
+                                INNER JOIN lessons l ON t.id = l.tid <br>
+                            </p>
+                            <p>
+                                SELECT t.name, t.code, l.course <br>
+                                FROM teachers t <br>
+                                LEFT OUTER JOIN lessons l ON t.id = l.tid <br>
+                            </p>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <p>Объединение таблиц</p>
-                    <p>
-                        SELECT t.name, t.code, l.course <br>
-                        FROM teachers t <br>
-                        INNER JOIN lessons l ON t.id = l.tid <br>
-                    </p>
-                    <p>
-                        SELECT t.name, t.code, l.course <br>
-                        FROM teachers t <br>
-                        LEFT OUTER JOIN lessons l ON t.id = l.tid <br>
-                    </p>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Алгоритм работы с СУБД MySQL</div>
+                        <blockquote class="examples__date">07.09.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>
+                            § Подключение необходимого расширения в PHP.INI <br>
+                            § php_mysqli.dll <br>
+
+                            § Установка соединения с сервером <br>
+                            § Выбор базы данных для работы (при необходимости) <br>
+                            § Исполнение запроса <br>
+                            § Обработка данных (при необходимости) <br>
+                            § Закрытие соединения <br>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Соединение с сервером баз данных</div>
+                        <blockquote class="examples__date">07.09.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>
+                            <p>// Соединение и выбор базы данных</p>
+                            <p>$link = mysqli_connect('localhost', 'root', '', 'web');</p>
+                            <p>// Отслеживаем ошибки при соединении</p>
+                            <p>if( !$link ){ <br>
+                                echo 'Ошибка: ' <br>
+                                . mysqli_connect_errno() <br>
+                                . ':' <br>
+                                . mysqli_connect_error(); <br>
+                                } <br>
+                            </p>
+                            <p>// Можно выбрать другую базу данных для работы</p>
+                            <p>mysqli_select_db($link, 'test');</p>
+                            <p>// Закрываем соединение</p>
+                            <p>mysqli_close($link);</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Основные манипуляции с сервером баз данных</div>
+                        <blockquote class="examples__date">07.09.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>
+                            // Соединение и выбор базы данных <br>
+                            $link = mysqli_connect('localhost', 'root', '', 'web'); <br>
+
+                            // Посылаем простой запрос. Результат: true или false <br>
+                            $result = mysqli_query($link, "SET NAMES 'utf8'"); <br>
+
+                            // Отслеживаем ошибки при исполнении запроса <br>
+                            if( !$result ){ <br>
+                            echo 'Ошибка: ' <br>
+                            . mysqli_errno($link) <br>
+                            . ':' <br>
+                            . mysqli_error($link); <br>
+                            } <br>
+
+                            // Посылаем запрос на выборку. Результат: object или false <br>
+                            $result = mysqli_query($link, 'SELECT * FROM teachers'); <br>
+
+                            // Можно закрыть соединение <br>
+                            mysqli_close($link); <br>
+
+                            // Обрабатываем результат <br>
+                            $row = mysqli_fetch_array($result); <br>
+                    </ul>
+                </li>
+                <li>
+
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Полезные функции</div>
+                        <blockquote class="examples__date">07.09.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>
+                            $link = mysqli_connect('localhost', 'root', '', 'web'); <br>
+
+                            // Экранируем строки! <br>
+                            $name = mysqli_real_escape_string($link, "John O'Brian"); <br>
+                            $sql = "INSERT INTO teachers(name, email) VALUES('$name', 'johnh@gmail.com')"; <br>
+
+                            mysqli_query($link, $sql); <br>
+                            // Получаем первичный ключ новой записи <br>
+                            $id = mysqli_insert_id($link); <br>
+
+                            $sql = "DELETE FROM lessons WHERE room = 'БК-1'"; <br>
+                            mysqli_query($link, $sql); <br>
+                            // Сколько записей изменено? <br>
+                            $count = mysqli_affected_rows($link); <br>
+
+                            $sql = "SELECT * FROM courses"; <br>
+                            $result = mysqli_query($link, $sql); <br>
+                            // Сколько записей вернулось? <br>
+                            $row_count = mysqli_num_rows($result); <br>
+                            // Сколько полей в вернувшихся записях? <br>
+                            $fields_count = mysqli_num_fields($result); <br>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="examples__title-date--box">
+                        <div class="examples__title examples__title--lvl2">Подготовленные запросы</div>
+                        <blockquote class="examples__date">07.09.2022</blockquote>
+                    </div>
+                    <ul>
+                        <li>$sql = "INSERT INTO users(name, email, age) VALUES(?, ?, ?)";
+
+                            // Уважаемый сервер, вот запрос - разбери его
+                            $stmt = mysqli_prepare($link, $sql);
+
+                            // Уважаемый сервер, вот параметры для запроса
+                            mysqli_stmt_bind_param($stmt, "ssi", $name, $email, $age);
+
+                            // А теперь, исполни подготовленный запрос с переданными параметрами
+                            mysqli_stmt_execute($stmt);
+                            mysqli_stmt_close($stmt);
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
-        <div class="examples__item"></div>
+        <div class="examples__item">
+
+            <div class="examples__title-date--box">
+                <div class="examples__title">Массив</div>
+                <blockquote class="examples__date">07.09.2022</blockquote>
+            </div>
+
+            <ul>
+                <li>
+                    <p>Сортировака</p>
+                    <p>asort($array), arsort($array) соритровка по значению ключа</p>
+                    <p>asort($array), arsort($array) соритровка по ключам</p>
+                    <p>uksort($array), function(f1,f2){функция сравнения чисел где return -1 <;0==;1>} пользовательская соритровка по ключам</p>
+                    <p>uasort($array), function(f1,f2){функция сравнения чисел где return -1 <;0==;1>} пользовательская соритровка по значению ключа</p>
+                    <p>natsort($array)) естественная сортировка</p>
+                    <hr>
+                    <p>sort и rsort сортировка списков</p>
+                    <p>usort и rsort пользовательская сортировка списка аналогично с uasort</p>
+                    <p>array_multisort передаются несколько массивов, имеющих одинаковое количество значений. Сортируются только первый массив, а остальные сортирую свои idшники под него</p>
+
+                </li>
+                <li>
+                    <p>array_reverse()</p>
+                    <p>shuffle рандом</p>
+                    <p>array_flipменяет местами клюс - значение</p>
+                    <p>array_merge слияние массивов, при одинаковых ключах значение второго массива перебивает первое </p>
+                </li>
+                <li>
+                    <p>Работа с подмассивами</p>
+                    <p>array_slice() получить значения массива начиная с номера ...</p>
+                    <p>array_splice() получить значения массива до номера ...</p>
+                    <p> array_push($array, 1000)</p>
+                    <p> array_unshift($array, 1000)</p>
+                    <p> array_pop($array)</p>
+                </li>
+            </ul>
+        </div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
         <div class="examples__item"></div>
